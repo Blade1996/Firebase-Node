@@ -1,0 +1,41 @@
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h1>Datos del doctor</h1>
+        </div>
+        <div class="card-body">
+
+        </div>
+        <div class="card-footer">
+            <form action="/new-doctor" method="POST">
+                <div class="form-group">
+                    <input type="text" name="names" id="name" placeholder="Nombres" class="form-control" autofocus>
+                </div>
+                 <div class="form-group">
+                    <input type="text" name="lastNames" id="lastNames" placeholder="Apellidos" class="form-control">
+                </div>
+                <div class="form-group">
+                     <input type="tel" id="phone" name="phone" placeholder="123-456-789" class="form-control" pattern="[0-9]{3} [0-9]{3} [0-9]{3}">
+                </div>
+                 <div class="form-group">
+                    <input type="text" name="cmp" id="" placeholder="N° CMP" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="specialty" id="" placeholder="Especialidad" class="form-control">
+                </div>
+                 <div class="form-group">
+                    <input type="number" name="connTime" placeholder="Tiempo de conexion" id="" class="form-control">
+                </div>
+                 <div class="form-group">
+                    <input type="text" name="aveConTime" placeholder="Tiempo promedio de consulta" id="" class="form-control">
+                </div>
+                 <div class="form-group">
+                    <input type="email" name="email" id="" class="form-control" placeholder="Email">
+                </div>
+                <button class="btn btn-primary btn-lock">
+                    Registrar
+                </button>
+            </form>
+        </div> 
+    </div>
+</div>
