@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
@@ -5,8 +6,9 @@ const path = require('path');
 
 const app = express();
 
+
 // Settings
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', handlebars({
     defaultLayout: 'main',

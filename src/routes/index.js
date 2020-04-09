@@ -1,15 +1,21 @@
 const { Router } = require('express');
 const router = Router();
-const admin = require('firebase-admin');
+const firebase = require('firebase/app');
+require('firebase/auth');
+require('firebase/database');
 
-var serviceAccount = require('../../fir-node-9b683-firebase-adminsdk-ibu58-3664d90a9e.json');
+const config = {
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    databaseURL: process.env.DATABASE_URL,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID
+}
 
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: 'https://fir-node-9b683.firebaseio.com/'
-})
-
-const db = admin.database();
+let init = firebase.initializeApp(config);
+let db = init.database().ref('doctors');
 
 
 router.get('/', (req, res) => {
@@ -28,8 +34,8 @@ router.post('/new-doctor', (req, res) => {
         aveConTime: req.body.aveConTime,
         email: req.body.email
     }
-    db.ref('doctors').push(newDoctor);
-    res.send('received');
+    db.push(newDoctor);
+    res.send('Registro Exitoso');
 });
 
 module.exports =router;
